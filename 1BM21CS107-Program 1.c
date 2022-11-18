@@ -1,61 +1,65 @@
-#include<stdio.h>
-#include<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 #define Stack_size 5
-int st[5], top = -1, item;
 
-void push()
+void push(int st[],int*top,int item)
 {
-	if(top==Stack_size - 1)
-		printf("Stack Overflow \n");
-	else
-	{
-		top++;
-		st[top] = item;
-	}
+if(*top==Stack_size-1)
+printf("stack overflow\n");
+else
+{
+(*top)++;
+st[*top]=item;
+}
+}
+int pop(int st[],int*top)
+{
+int del_item;
+if (*top==-1)
+printf("Stack underflow\n");
+else
+{
+del_item=st[*top];
+(*top)--;
+return del_item;
+}
+}
+void display(int st[],int*top)
+{
+int i;
+if (*top==-1)
+printf("stack is empty\n");
+for(i=0;i<=*top;i++)
+{
+printf("%d\n",st[i]);
+}
 }
 
-int pop()
+void main()
 {
-	int delitem;
-		if(top==-1)
-			printf("Stack Underflow \n");
-		else
-		{
-			delitem = st[top];
-			top--;
-			printf("The element deleted is %d \n",delitem);
-			return delitem;
-		}
-}
-
-void display()
+int st[10];
+int item;
+int top=-1;
+int n,i;
+while(1)
 {
-	int i;
-	if(top == -1)
-		printf("Stack is empty\n");
-    for(i=0; i <=top;i++)
-        printf("%d \n", st[i]);
-}
-
-int main()
-{   int n,r;
-    while(1)
+    printf("choose from the following\n1.Insert\n2.Delete\n3.Display\n4.Exit\n");
+    scanf("%d",&n);
+    switch(n)
     {
-        printf("Enter the option you want to choose \n 1. To insert a element \n 2. To remove an element \n 3. To display the elements \n 4. Exit\n ");
-        scanf("%d",&n);
-        switch(n)
-        {
-            case 1:printf("Enter the element you want to add\n");
-                   scanf("%d",&r);
-                   item = r;
-                    push();
-                    break;
-            case 2:pop();
-                    break;
-            case 3: display();
-                    break;
-            default:exit(0);
-                    break;
-        }
+        case 1:printf("enter the element you want to enter\n");
+               scanf("%d",&item);
+             push(st,&top,item);
+             break;
+        case 2:i=pop(st,&top);
+            printf("item being deleted is %d\n",i);
+             break;
+        case 3:display(st,&top);
+             break;
+        case 4:exit(0);
+        default:printf("enter correct option number\n");
+             break;
     }
+}
 }
