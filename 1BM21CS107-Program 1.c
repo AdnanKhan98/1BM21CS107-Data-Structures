@@ -44,7 +44,7 @@ int top=-1;
 int n,i;
 while(1)
 {
-    printf("choose from the following\n1.Insert\n2.Delete\n3.Display\n4.Exit\n");
+    printf("Enter the option you want to choose"\n1.Insert\n2.Delete\n3.Display\n4.Exit\n");
     scanf("%d",&n);
     switch(n)
     {
