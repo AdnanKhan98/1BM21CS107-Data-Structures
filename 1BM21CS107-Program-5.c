@@ -18,7 +18,7 @@ void display(struct Node *first)
     {
     while(ptr!=NULL)
     {
-        printf("Element %d is %d\n",(i+1),(ptr->value));
+        printf("%d ",(ptr->value));
         ptr=ptr->next;
         i++;
     } 
@@ -98,7 +98,7 @@ int main()
     int ch,data,index;
     while(1)
     {
-    printf("Enter 1 to insert at the beginning.\nEnter 2 to insert in between.\nEnter 3 to insert at the end.\nEnter 4 to display.\nEnter 5 to exit!\n");
+    printf("1 insert at the beginning.\n 2  insert in between.\n3 insert at the end.\nEnter 4 to display.\nEnter 5 to exit!\n");
         scanf("%d",&ch);
         switch(ch)
         {
